@@ -6,6 +6,7 @@ import Footer from "./componentes/Footer";
 import Category from "./pages/Categorias";
 import Carro from "./pages/Carro";
 import ListaProductos from "./pages/ListaProductos";
+import Producto from "./pages/Producto";
 
 function App() {
   return (
@@ -18,7 +19,11 @@ function App() {
             <Route path="/home" element={<Category></Category>}></Route>
 
             <Route path="/carro" element={<Carro />}></Route>
-            <Route path="/products/:category" Component={ListaProductos}></Route>
+            <Route
+              path="/products/:category"
+              Component={ListaProductos}
+            ></Route>
+            <Route path="/product/:id" element={<Producto/>}></Route>
           </Routes>
         </BrowserRouter>
       </header>
