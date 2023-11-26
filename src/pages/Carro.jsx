@@ -1,12 +1,13 @@
+import React, { useEffect } from "react";
 import DetallePago from "../componentes/carro/DetallePago";
 import ProductoCarro from "../componentes/carro/ProductoCarro";
 
-function Carro() {
-  return (
+function Carro( ) {
+    return (
     <div className="flex flex-row">
-      <div className="basis-3/4 m-9 bg-slate-100 rounded-md border">
-        <div className="ml-2 p-3">
-          <h1>Carro</h1>
+      <div className="basis-3/4 m-9">
+        <div className="ml-2 p-3 bg-aqua-2 rounded">
+          <h1 className="font-bold text-2xl text-White">Carro</h1>
         </div>
         <div className="flex flex-col items-center">
           <ProductoCarro />
