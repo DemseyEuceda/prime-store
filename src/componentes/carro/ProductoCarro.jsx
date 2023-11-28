@@ -36,7 +36,7 @@ function ProductoCarro() {
             id="quantitySelect"
             value={quantity}
             onChange={handleQuantityChange}
-            className="border rounded-md px-2 py-1 focus:outline-none focus:border-slate-300"
+            className="border rounded-md px-2 py-1 focus:outline-none focus:border-slate-300 bg-aqua-2"
           >
             {[...Array(10).keys()].map((num) => (
               <option key={num + 1} value={num + 1}>
