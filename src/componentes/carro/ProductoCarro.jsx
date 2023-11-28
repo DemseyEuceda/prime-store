@@ -11,13 +11,13 @@ function ProductoCarro() {
 
   return (
     <div className="flex flex-row p-2  rounded">
-      <div className="basis-1/4 bg-gray-300">
+      <div className="basis-1/4 bg-slate-200">
         <img
           src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
           alt="Imagen del producto"
         />
       </div>
-      <div className="basis-3/4 p-2 flex flex-col items-center justify-center bg-slate-300 border-slate-300 rounded">
+      <div className="basis-3/4 p-2 flex flex-col items-center justify-center bg-slate-200 border-slate-300 rounded">
         <p className="font-bold">Nombre del producto</p>
         <p className="font-bold">Precio</p>
         {/* Estado de disponibilidad */}

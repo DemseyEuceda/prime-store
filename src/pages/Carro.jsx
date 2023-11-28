@@ -5,8 +5,8 @@ import ProductoCarro from "../componentes/carro/ProductoCarro";
 function Carro( ) {
     return (
     <div className="flex flex-row">
-      <div className="basis-3/4 m-9">
-        <div className="ml-2 p-3 bg-aqua-2 rounded">
+      <div className="basis-3/4 m-9 bg-slate-200 rounded">
+        <div className="ml-2 p-3 bg-slate-200 rounded">
           <h1 className="font-bold text-2xl text-White">Carro</h1>
         </div>
         <div className="flex flex-col items-center">
