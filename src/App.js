@@ -10,11 +10,14 @@ import ListaProductos from "./pages/ListaProductos";
 import Producto from "./pages/Producto";
 import MetodoPago from "./componentes/card/MetodoPago";
 import CrearProducto from "./componentes/card/CrearProducto";
+import { useFirebaseApp } from "reactfire";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
   
+  const firebase = useFirebaseApp();
+  console.log(firebase);
 
 
       //       <Route path="/carro" element={<Carro />}></Route>
