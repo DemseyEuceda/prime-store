@@ -1,6 +1,6 @@
 const CardCategory = ({ category }) => {
 
-  console.log(category.name);
+  console.log(category.nombre);
   return (
     <div
       key={category.id}
