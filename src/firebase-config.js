@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
+
 const firebaseConfig =  {
     apiKey: "AIzaSyBmRv0bmv62-M9z75ZxHmdMayu97JTpxHA",
     authDomain: "prime-store-4e259.firebaseapp.com",
@@ -10,7 +11,8 @@ const firebaseConfig =  {
     storageBucket: "prime-store-4e259.appspot.com",
     messagingSenderId: "167788427098",
     appId: "1:167788427098:web:87a8b9e4c6daa31ac4e563",
-    measurementId: "G-21T5V35TYW"
+    measurementId: "G-21T5V35TYW",
+    OAuth : "https://prime-store-4e259.firebaseapp.com/__/auth/handler"
     }
 
 const app = initializeApp(firebaseConfig);
