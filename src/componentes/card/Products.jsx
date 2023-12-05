@@ -35,15 +35,12 @@ const products = [
 ];
 
 const Products = ({ cat }) => {
-  console.log(cat);
-  const productsFiltered = products.filter(
-    (product) => product.category === cat
-  );
+  
   return (
     <div>
       <div>
-        {productsFiltered.map((product) => (
-          <CardProduct key={product.id} product={product} />
+        {cat.map((product) => (
+          <CardProduct key={product.imagenes} product={product} />
         ))}
       </div>
     </div>

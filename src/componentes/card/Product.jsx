@@ -1,6 +1,27 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { storage } from "../../firebase-config";
+import { getDownloadURL, ref } from "firebase/storage";
+import { set } from "firebase/database";
 
 const CardProduct = ({ product }) => {
+
+  const [imagen , setImagen] = useState();
+
+  useEffect(()=>{
+    const image = ref(storage, `imagenes/${product.imagenes}`);
+    getDownloadURL(image).then((res)=>{
+      setImagen(res);
+      console.log(imagen)
+    }
+      
+    );
+    
+
+  }, [])
+  
+  
+
   return (
     <div className="max-w-xs mb-4 mx-auto bg-white rounded-md shadow-md overflow-hidden md:max-w-4xl">
       <Link to={`/product/${product.id}`}>
@@ -8,7 +29,7 @@ const CardProduct = ({ product }) => {
           <div className="md:shrink-0 border-r">
             <img
               className="w-80 h-40 object-cover md:h-full md:w-48"
-              src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+              src={imagen}
               alt="Modern building architecture"
             />
           </div>
@@ -20,7 +41,7 @@ const CardProduct = ({ product }) => {
               {product.nombre}
             </p>
             <p className="mt-2 text-xs text-slate-500 font-bold">
-              {product.price}
+              {product.precio}
             </p>
           </div>
         </div>
