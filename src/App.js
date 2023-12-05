@@ -1,6 +1,6 @@
 // App.js
 import React, { useState } from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "../src/pages/Login";
 import Navbar from "./componentes/Navbar";
 import Footer from "./componentes/Footer";
@@ -10,14 +10,13 @@ import ListaProductos from "./pages/ListaProductos";
 import Producto from "./pages/Producto";
 import MetodoPago from "./componentes/card/MetodoPago";
 import CrearProducto from "./componentes/card/CrearProducto";
-import { useFirebaseApp } from "reactfire";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
   
-  const firebase = useFirebaseApp();
-  console.log(firebase);
+
+  
 
 
       //       <Route path="/carro" element={<Carro />}></Route>
