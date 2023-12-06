@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { RiDeleteBin5Line } from "react-icons/ri";
+import { storage } from "../../firebase-config";
+import { getDownloadURL, ref } from "firebase/storage";
+
 function ProductoCarro({producto}) {
   const [disponible, setDisponible] = useState(true);
+  const [imagen, setImagen] = useState();
+  
 
   const [quantity, setQuantity] = useState(1);
 
@@ -11,12 +16,21 @@ function ProductoCarro({producto}) {
 
   console.log(producto.cantidad)
 
+
+  useEffect(() => {
+    const image = ref(storage, `imagenes/${producto.imagenes}`);
+    getDownloadURL(image).then((res) => {
+      setImagen(res);
+      console.log(imagen);
+    });
+  }, []);
+
   return (
     <div className="flex flex-row p-2  rounded">
       <div className="basis-1/4 bg-gray-1">
         <img
-          src={producto.imagenes}
-          alt="Imagen del producto"
+          src={imagen}
+          alt={imagen}
         />
       </div>
       <div className="basis-3/4 p-2 flex flex-col items-center justify-center bg-gray-1 border-slate-300 rounded">

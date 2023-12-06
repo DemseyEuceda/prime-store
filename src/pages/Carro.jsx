@@ -7,7 +7,7 @@ function Carro( ) {
 
   const carro = useSelector((state) => state.carro);
 
-  console.log(carro)
+  //console.log(carro)
 
     return (
     <div className="flex flex-row">
@@ -17,7 +17,7 @@ function Carro( ) {
         </div>
         <div className="flex flex-col items-center">
           {carro.productos.map((producto) => (
-            <ProductoCarro key={producto.id} producto={producto} />
+            <ProductoCarro key={producto.imagenes} producto={producto} />
           ))}
 
         </div>
