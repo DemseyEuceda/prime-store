@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { storage } from "../../firebase-config";
 import { getDownloadURL, ref } from "firebase/storage";
-import { set } from "firebase/database";
+//import { set } from "firebase/database";
 import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
 
 import { useDispatch } from "react-redux";
