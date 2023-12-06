@@ -29,13 +29,15 @@ function Login({ setShowNavbar, setShowFooter }) {
       const credencial = GoogleAuthProvider.credentialFromResult(res);
       const token = credencial.accessToken;
       const user = res.user;
+      console.log(user)
       localStorage.setItem('Token', token);
-      localStorage.setItem('user', user)
+      localStorage.setItem('userName', user.displayName);
+      localStorage.setItem('userphoto', user.photoURL);
     }).catch((error)=>{
       const errorCode = error.code;
       const errorMessage = error.message;
       const email = error.email;
-        const dataError = {errorCode : errorCode, errorMessage : errorMessage, email : email}
+      const dataError = {errorCode : errorCode, errorMessage : errorMessage, email : email}
       console.log(dataError)
 
 
@@ -76,18 +78,7 @@ function Login({ setShowNavbar, setShowFooter }) {
           Iniciar Sesión
         </h1>
         <div className="bg-gray-200 flex flex-col rounded">
-          <label className="label-input-login text-blue-1">Email:</label>
-          <input type="email" className="border border-black rounded text-blue-1" />
 
-          <label className="label-input-login text-blue-1">Contraseña</label>
-          <input type="password" className="border border-black rounded" />
-
-          <button
-            className="sig-in text-white bg-blue-1 rounded mt-4"
-            onClick={() => setShowNavbar(true)}
-          >
-            Iniciar Sesión
-          </button>
           <button
             className="bg-aqua-2 text-white py-2 px-4 rounded-md flex items-center gap-2 shadow-md p-2"
             style={{ fontSize: "12px" }}
@@ -102,12 +93,8 @@ function Login({ setShowNavbar, setShowFooter }) {
              onClick={authGoogle}
           >
             <FcGoogle size={20} />
-            <span>Continua con Facebook</span>
+            <span>Continua con Google</span>
           </button>
-
-          <a href="/cambiar-contrasena" className="text-blue-500">
-            ¿Olvidaste tu contraseña?
-          </a>
         </div>
       </div>
     </div>
