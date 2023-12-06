@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { RiDeleteBin5Line } from "react-icons/ri";
-function ProductoCarro() {
+function ProductoCarro({producto}) {
   const [disponible, setDisponible] = useState(true);
 
   const [quantity, setQuantity] = useState(1);
@@ -9,17 +9,19 @@ function ProductoCarro() {
     setQuantity(parseInt(event.target.value, 10));
   };
 
+  console.log(producto.cantidad)
+
   return (
     <div className="flex flex-row p-2  rounded">
       <div className="basis-1/4 bg-gray-1">
         <img
-          src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+          src={producto.imagenes}
           alt="Imagen del producto"
         />
       </div>
       <div className="basis-3/4 p-2 flex flex-col items-center justify-center bg-gray-1 border-slate-300 rounded">
-        <p className="font-bold">Nombre del producto</p>
-        <p className="font-bold">Precio</p>
+        <p className="font-bold">{producto.nombre}</p>
+        <p className="font-bold">{producto.precio}</p>
         {/* Estado de disponibilidad */}
         {disponible ? (
           <p className="text-aqua-2 font-semibold">Disponible</p>
@@ -34,7 +36,7 @@ function ProductoCarro() {
           </label>
           <select
             id="quantitySelect"
-            value={quantity}
+            value={producto.cantidad}
             onChange={handleQuantityChange}
             className="border rounded-md px-2 py-1 focus:outline-none focus:border-slate-300 bg-aqua-2"
           >
