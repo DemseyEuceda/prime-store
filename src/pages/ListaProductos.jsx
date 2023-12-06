@@ -24,7 +24,7 @@ const ListaProductos = () => {
   
   }, [])
 
-
+  console.log(productos)
   return (
     <div className="border border-red">
       <h1>{category.toUpperCase()}</h1>

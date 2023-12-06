@@ -2,6 +2,7 @@ import { FaSearch } from "react-icons/fa";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { BsList as BsListIcon } from "react-icons/bs";
 import { useSelector } from "react-redux";
+
 function Navbar() {
   const cantidad = useSelector((state) => state.carro.cantidad);
 
@@ -29,6 +30,7 @@ function Navbar() {
         <button className="flex items-center gap-2 px-4 py-2 bg-purple-1 text-white rounded">
           <AiOutlineHeart size={30} />
         </button>
+        <a href="/carro" className="flex items-center gap-2 px-4 py-2 bg-purple-1 text-white rounded relative">
         <button className="flex items-center gap-2 px-4 py-2 bg-purple-1 text-white rounded relative">
           {
             cantidad > 0 && (
@@ -39,7 +41,7 @@ function Navbar() {
             }
           <AiOutlineShoppingCart size={30} />
         </button>
-
+        </a>
         <button className="flex items-center gap-2 px-4 py-2 bg-purple-1 text-white rounded">
           <BsListIcon size={30} style={{ marginRight: "8px" }} />
         </button>
