@@ -15,21 +15,6 @@ function App() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
   
-
-  
-
-
-      //       <Route path="/carro" element={<Carro />}></Route>
-      //       <Route
-      //         path="/products/:category"
-      //         Component={ListaProductos}
-      //       ></Route>
-      //       <Route path="/product/:id" element={<Producto/>}></Route>
-      //     </Routes>
-      //   </BrowserRouter>
-      // </header>
-      // <Footer></Footer>
-
   return (
     <div>
       {showNavbar && <Navbar></Navbar>}
