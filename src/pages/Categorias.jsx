@@ -1,6 +1,7 @@
+import { useUser } from "reactfire";
 import CardCategory from "../componentes/card/Category";
 import { db } from "../firebase-config";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc, query, where } from "firebase/firestore";
 
 import { useEffect, useState } from "react";
 
@@ -10,7 +11,32 @@ import { useEffect, useState } from "react";
 
 
 export default function Home() {
-  const [categorias, setCategorias] = useState([])
+  const [categorias, setCategorias] = useState([]);
+
+
+
+   
+  useEffect(async ()=>{
+    
+    var agregado = localStorage.getItem("agregado");
+    var uid = localStorage.getItem("uid");
+    //console.log(agregado)
+    const userRef = collection(db, 'usuarios');
+    var usuario = query(userRef, where("uid", "==", uid ));
+    var response = await getDocs(usuario);
+
+    
+
+    if(agregado){
+      addDoc(userRef, {correo : localStorage.getItem("correo"), nombre : localStorage.getItem("userName"), uid : localStorage.getItem("uid")}).then((res)=>{
+      localStorage.setItem("agregado", true)
+      }).catch((error)=>{
+        console.log(error)
+      })
+    }
+    
+
+  },[])
 
   useEffect(()=>{
     const ref = collection(db, "categorias");
