@@ -1,10 +1,10 @@
 const CardCategory = ({ category }) => {
 
-  console.log(category.nombre);
+  //console.log(category.nombre);
   return (
     <div
       key={category.id}
-      className="group relative p-6 border border-red-300 bg-gray-1 rounded-lg"
+      className="group relative p-6 border border-red-300 bg-gray-1 rounded-lg "
     >
       <div className="mb-1">
         <p className="text-black font-bold">{category.nombre}</p>

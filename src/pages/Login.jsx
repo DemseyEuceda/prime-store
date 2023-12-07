@@ -31,6 +31,7 @@ function Login({ setShowNavbar, setShowFooter }) {
         const user = res.user;
         localStorage.setItem("Token", token);
         localStorage.setItem("user", user);
+        window.location.href ='/home'
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -43,29 +44,10 @@ function Login({ setShowNavbar, setShowFooter }) {
         };
         console.log(dataError);
       });
+      
   };
 
-  const authFacebook = () => {
-    signInWithPopup(auth, provideF)
-      .then((res) => {
-        const credencial = FacebookAuthProvider.credentialFromResult(res);
-        const token = credencial.accessToken;
-        const user = res.user;
-        localStorage.setItem("Token", token);
-        localStorage.setItem("user", user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const dataError = {
-          errorCode: errorCode,
-          errorMessage: errorMessage,
-          email: email,
-        };
-        console.log(dataError);
-      });
-  };
+
 
   return (
     <div className="flex min-h-screen ">

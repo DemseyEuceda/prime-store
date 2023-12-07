@@ -40,7 +40,8 @@ import { db, subirImagen } from "../../firebase-config";
       descripcion : descripcion, 
       precio : precio, 
       categoria : categoria, 
-      imagenes : nameImage
+      imagenes : nameImage,
+      favoritos : false
     }
     if(nombre !== '' && descripcion !== ''&& precio !== ''  && (categoria !==0 && categoria !=='') && imagenes !== '' ){
       var url = `categorias/${categoria}/productos`;

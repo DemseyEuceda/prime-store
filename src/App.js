@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       {showNavbar && <Navbar></Navbar>}
-      <div className="main-content">
+      <div className="main-content ">
         <header className="App-header">
           <BrowserRouter>
             <Routes>
