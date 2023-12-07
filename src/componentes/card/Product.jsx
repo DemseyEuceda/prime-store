@@ -26,6 +26,8 @@ const CardProduct = ({ product }) => {
     dispatch(addProduct({...product, cantidad}));
   };
 
+  console.log(product);
+
   return (
     <div className="max-w-xs mb-4 mx-auto bg-white rounded-md shadow-md overflow-hidden md:max-w-4xl md:h-max border border-red">
       <div className="flex bg-gray-1">

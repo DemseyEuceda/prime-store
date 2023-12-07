@@ -3,30 +3,47 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import { storage } from "../../firebase-config";
 import { getDownloadURL, ref } from "firebase/storage";
 
-function ProductoCarro({producto}) {
+import { useDispatch } from "react-redux";
+import { removeAllProduct, removeProduct, addProduct } from "../../redux/carroRedux";
+import { FaPlus } from "react-icons/fa";
+import { RiSubtractFill } from "react-icons/ri";
+
+function ProductoCarro({producto, index}) {
   const [disponible, setDisponible] = useState(true);
   const [imagen, setImagen] = useState();
-  
-
   const [quantity, setQuantity] = useState(1);
+
+  const dispatch = useDispatch();
 
   const handleQuantityChange = (event) => {
     setQuantity(parseInt(event.target.value, 10));
   };
-
-  console.log(producto.cantidad)
 
 
   useEffect(() => {
     const image = ref(storage, `imagenes/${producto.imagenes}`);
     getDownloadURL(image).then((res) => {
       setImagen(res);
-      console.log(imagen);
     });
   }, []);
 
+  console.log(index);
+
+  const handleRemoveClick = () => {
+    dispatch(removeAllProduct({...producto}));
+  }
+
+  const handleAddClick = () => {
+    const cantidad = 1;
+    dispatch(addProduct({...producto, cantidad}));
+  };
+
+  const handleRemoveProduct = () => {
+    dispatch(removeProduct({...producto, cantidad: 1}));
+  }
+
   return (
-    <div className="flex flex-row p-2  rounded">
+    <div className="flex flex-row p-2  border-t border-black">
       <div className="basis-1/4 bg-gray-1">
         <img
           src={imagen}
@@ -45,22 +62,17 @@ function ProductoCarro({producto}) {
         <p>Color</p>
         <p>Talla</p>
         <div className="flex items-center space-x-2">
-          <label htmlFor="quantitySelect" className="text-black">
-            Cantidad:
-          </label>
-          <select
-            id="quantitySelect"
-            value={producto.cantidad}
-            onChange={handleQuantityChange}
-            className="border rounded-md px-2 py-1 focus:outline-none focus:border-slate-300 bg-aqua-2"
-          >
-            {[...Array(10).keys()].map((num) => (
-              <option key={num + 1} value={num + 1}>
-                {num + 1}
-              </option>
-            ))}
-          </select>
-          <button>
+          <button className="border border-gray-300 px-2 py-1 rounded" onClick={handleRemoveProduct}>
+            <RiSubtractFill />
+          </button>
+          <span className="font-bold">
+            {producto.cantidad}
+          </span>
+          <button className="border border-gray-300 px-2 py-1 rounded" onClick={handleAddClick}>
+            <FaPlus />
+          </button>
+          
+          <button onClick={handleRemoveClick}>
           <RiDeleteBin5Line size={32} color=" red" />
           </button>
           
