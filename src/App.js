@@ -40,6 +40,10 @@ function App() {
                 element={<Category setShowNavbar={setShowNavbar} setShowFooter={setShowFooter}></Category>}
               ></Route>
               <Route
+                path="/"
+                element={<Category setShowNavbar={setShowNavbar} setShowFooter={setShowFooter}></Category>}
+              ></Route>
+              <Route
                 path="/carro"
                 element={<Carro setShowNavbar={setShowNavbar} setShowFooter={setShowFooter} />}
               ></Route>
