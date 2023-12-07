@@ -5,11 +5,10 @@ import {
   GoogleAuthProvider,
   getAuth,
   signInWithPopup,
-  FacebookAuthProvider,
 } from "firebase/auth";
 
 const provider = new GoogleAuthProvider();
-const provideF = new FacebookAuthProvider();
+
 
 function Login({ setShowNavbar, setShowFooter }) {
   const auth = getAuth();
@@ -30,8 +29,15 @@ function Login({ setShowNavbar, setShowFooter }) {
         const token = credencial.accessToken;
         const user = res.user;
         localStorage.setItem("Token", token);
-        localStorage.setItem("user", user);
+        localStorage.setItem("userphoto", user.photoURL);
+        localStorage.setItem("userName", user.displayName);
+        localStorage.setItem("uid", user.uid);
+        localStorage.setItem("correo", user.email);
+        localStorage.setItem("agregado", false);
+       
+
         window.location.href ='/home'
+
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -101,7 +107,7 @@ function Login({ setShowNavbar, setShowFooter }) {
                   contraseña
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-aqua-1 hover:text-aqua-2">
+                  <a  className="font-semibold text-aqua-1 hover:text-aqua-2">
                     ¿Olvidaste tu contraseña?
                   </a>
                 </div>

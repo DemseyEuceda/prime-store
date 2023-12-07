@@ -1,5 +1,7 @@
 // App.js
 import React, { useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase-config";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "../src/pages/Login";
 import Navbar from "./componentes/Navbar";
@@ -14,6 +16,13 @@ import CrearProducto from "./componentes/card/CrearProducto";
 function App() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
+
+  onAuthStateChanged(auth, async (user)=>{
+    console.log(user)
+  })
+
+
+
   
   return (
     <div>

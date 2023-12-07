@@ -49,6 +49,8 @@ import { db, subirImagen } from "../../firebase-config";
       console.log(nameImage)
       addDoc(ref, data).then((ers)=>{
           console.log(ers)
+      }).catch((error)=>{
+        console.log(error)
       })
       document.getElementById('nombre').value = '';
       document.getElementById('descripcion').value = '';
