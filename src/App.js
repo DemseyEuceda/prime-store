@@ -12,6 +12,7 @@ import ListaProductos from "./pages/ListaProductos";
 import Producto from "./pages/Producto";
 import MetodoPago from "./componentes/card/MetodoPago";
 import CrearProducto from "./componentes/card/CrearProducto";
+import ListaDeseos from "./pages/ListaDeseos";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -60,6 +61,9 @@ function App() {
                 <Route
                 path="/crearproducto"
                 element={<CrearProducto setShowNavbar={setShowNavbar} setShowFooter={setShowFooter} />} ></Route>
+                <Route
+                path="/deseos"
+                element={<ListaDeseos setShowNavbar={setShowNavbar} setShowFooter={setShowFooter} />} ></Route>
             </Routes>
           </BrowserRouter>
         </header>

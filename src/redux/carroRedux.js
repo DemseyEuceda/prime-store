@@ -4,6 +4,7 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: {
     productos: [],
+    favoritos : [],
     cantidad: 0,
     total: 0,
   },
@@ -61,8 +62,18 @@ const cartSlice = createSlice({
       state.cantidad = 0;
       state.total = 0;
     },
+    addFavorite : (state, action)=>{
+      const existe = state.favoritos.find(
+        (producto) => producto.imagenes === action.payload.imagenes
+      );
+        state.favoritos.push(action.payload);
+      
+      
+
+    },
+   
   },
 });
 
-export const { addProduct, removeProduct, removeAllCart, removeAllProduct } = cartSlice.actions;
+export const { addProduct, removeProduct, removeAllCart, removeAllProduct, addFavorite } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -46,9 +46,9 @@ function Navbar() {
       </div>
 
       <div className="flex">
-        <button   className="flex items-center gap-2 px-4 py-2 bg-purple-1 text-white rounded">
+        <a  href="/deseos"  className="flex items-center gap-2 px-4 py-2 bg-purple-1 text-white rounded">
           <AiOutlineHeart size={30} />
-        </button>
+        </a>
         <a href="/carro" className="flex items-center gap-2 px-4 py-2 bg-purple-1 text-white rounded relative">
           {
             cantidad > 0 && (
