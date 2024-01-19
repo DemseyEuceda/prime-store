@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import DetallePago from "../componentes/carro/DetallePago";
 import ProductoCarro from "../componentes/carro/ProductoCarro";
 import { useSelector } from "react-redux";
@@ -7,22 +7,22 @@ import { useSelector } from "react-redux";
 function Carro( ) {
   const carro = useSelector((state) => state.carro);
 
-  console.log(carro.productos)
+  //console.log(carro.productos)
 
     return (
-    <div className="flex flex-row">
-      <div className="basis-3/4 m-9 bg-gray-1 rounded border border-red">
+    <div className="grid-cols-1 sm:grid-cols-2">
+      <div className="basis-3/4 m-9 bg-gray-1 rounded border border-purple-2">
         <div className="ml-2 p-3 bg-gray-1 rounded">
           <h1 className="font-bold text-2xl text-White">Carro</h1>
         </div>
-        <div className="flex flex-col items-center ">
+        <div className="grid-cols-2 ">
           {carro.productos.map((producto,index) => (
             <ProductoCarro key={producto.imagenes} producto={producto} index={index} />
           ))}
 
         </div>
       </div>
-      <div className="basis-1/4 border border-red">
+      <div className="basis-1/4 border border-purple-2 mx-8 ">
         <DetallePago pago={carro}/>
       </div>
     </div>

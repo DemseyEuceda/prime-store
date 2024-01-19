@@ -9,13 +9,14 @@ const CardProduct = ({ product }) => {
   const [imagen, setImagen] = useState();
   const [isLiked, setIsLiked] = useState(false); 
   const dispatch = useDispatch();
+ 
 
   useEffect(() => {
     const image = ref(storage, `imagenes/${product.imagenes}`);
     getDownloadURL(image).then((res) => {
       setImagen(res);
     });
-  }, []);
+  }, [product.imagenes]);
 
   const handleAddClick = () => {
     const cantidad = 1;
@@ -33,11 +34,11 @@ const CardProduct = ({ product }) => {
   };
 
   return (
-    <div className="max-w-xs mb-4 mx-auto bg-white rounded-md shadow-md overflow-hidden md:max-w-4xl md:h-max border border-red">
-      <div className="flex bg-gray-1">
+    <div className=" group mb-4 ml-4 mr-4 mx-auto bg-white rounded-md shadow-md overflow-hidden md:max-w-4xl md:h-max border border-purple-2">
+      <div className="flex bg-gray-1 h-72 md:w-auto">
         <div className="md:shrink-0 border-r">
           <img
-            className="w-80 h-40 object-cover md:h-full md:w-48"
+            className="w-80 h-max object-cover md:h-full md:w-48"
             src={imagen}
             alt="Modern building architecture"
           />

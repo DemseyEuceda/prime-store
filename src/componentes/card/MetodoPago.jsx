@@ -2,8 +2,8 @@ import React from "react";
 
 function MetodoPago() {
   return (
-    <div className="flex justify-center p-10 rounded-lg">
-      <div className="flex flex-col bg-aqua-2 w-100 h-100 space-y-5 space-x-5 p-10 rounded-lg">
+    <div className="flex justify-center p-10 rounded-lg mb-8 ">
+      <div className="flex flex-col bg-aqua-2 w-100 h-100  space-y-5 space-x-5 p-10 rounded-lg">
         <div className="flex justify-center space-x-4">
           <div className="flex flex-col space-x-4">
             <h2 className="text-black font-semibold text-center">

@@ -2,7 +2,7 @@ import React from "react";
 
 function DetallePago({pago}) {
   return (
-    <div className="border p-4 mt-9 mr-9 mb-9 bg-gray-1 rounded">
+    <div className="border p-4 mt-9 mr-9 mb-12 sm:mb-20 bg-gray-1 rounded ">
       
         <div className="flex flex-row justify-center bg-gray-1 p-2 rounded-md">
           <div className="flex flex-col w-3/4">

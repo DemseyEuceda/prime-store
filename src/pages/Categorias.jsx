@@ -1,4 +1,4 @@
-import { useUser } from "reactfire";
+
 import CardCategory from "../componentes/card/Category";
 import { db } from "../firebase-config";
 import { collection, getDocs, addDoc, query, where } from "firebase/firestore";
@@ -16,19 +16,28 @@ export default function Home() {
 
 
    
-  useEffect(async ()=>{
+  useEffect(()=>{
     
     var agregado = localStorage.getItem("agregado");
     var uid = localStorage.getItem("uid");
-    //console.log(agregado)
+    console.log(agregado)
     const userRef = collection(db, 'usuarios');
     var usuario = query(userRef, where("uid", "==", uid ));
-    var response = await getDocs(usuario);
+    getDocs(usuario).then((users)=>{
+      users.forEach((user)=>{
+        localStorage.setItem("agregado", true);
+        if(agregado){
+          localStorage.setItem("rol", user.data().rol)
+        }
+      })
+
+    });
 
     
 
-    if(agregado){
-      addDoc(userRef, {correo : localStorage.getItem("correo"), nombre : localStorage.getItem("userName"), uid : localStorage.getItem("uid")}).then((res)=>{
+    if(!agregado){
+      let dataUser = {correo : localStorage.getItem("correo"), nombre : localStorage.getItem("userName"), uid : localStorage.getItem("uid"), rol : "usuario"};
+      addDoc(userRef,dataUser ).then(()=>{
       localStorage.setItem("agregado", true)
       }).catch((error)=>{
         console.log(error)
@@ -42,7 +51,7 @@ export default function Home() {
     const ref = collection(db, "categorias");
     var list = []
     getDocs(ref).then((res)=>{
-      res.docs.map((doc)=>{
+      res.docs.forEach((doc)=>{
         list.push(doc.data());        
       })
       setCategorias(list);
@@ -55,7 +64,7 @@ export default function Home() {
 
 
   return (
-    <div className="bg-white border border-yellow-300 " >
+    <div className="bg-white border border-yellow-300  " >
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8 border border-green-300  ">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">
           Categorias

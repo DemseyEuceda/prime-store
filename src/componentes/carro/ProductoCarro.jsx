@@ -9,25 +9,27 @@ import { FaPlus } from "react-icons/fa";
 import { RiSubtractFill } from "react-icons/ri";
 
 function ProductoCarro({producto, index}) {
-  const [disponible, setDisponible] = useState(true);
+  const disponible = useState(true);
   const [imagen, setImagen] = useState();
-  const [quantity, setQuantity] = useState(1);
+ // const [quantity, setQuantity] = useState(1);
 
   const dispatch = useDispatch();
+
+  /*
 
   const handleQuantityChange = (event) => {
     setQuantity(parseInt(event.target.value, 10));
   };
-
+*/
 
   useEffect(() => {
     const image = ref(storage, `imagenes/${producto.imagenes}`);
     getDownloadURL(image).then((res) => {
       setImagen(res);
     });
-  }, []);
+  }, [producto.imagenes]);
 
-  console.log(index);
+  //console.log(index);
 
   const handleRemoveClick = () => {
     dispatch(removeAllProduct({...producto}));

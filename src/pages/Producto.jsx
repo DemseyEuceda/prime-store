@@ -14,7 +14,7 @@ const Producto = () => {
     console.log(id);
 
   return (
-    <div className="flex  items-center justify-center">
+    <div className="flex  items-center justify-center  ">
         <div className="p-2 flex flex-row border border-red">
             <div className="basis-1/4">
                 <img className="" src={product.image} alt={product.nombre} />

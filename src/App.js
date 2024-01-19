@@ -13,22 +13,23 @@ import Producto from "./pages/Producto";
 import MetodoPago from "./componentes/card/MetodoPago";
 import CrearProducto from "./componentes/card/CrearProducto";
 import ListaDeseos from "./pages/ListaDeseos";
+import TodosProductos from "./pages/TodosProductos";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [showFooter, setShowFooter] = useState(true);
 
   onAuthStateChanged(auth, async (user)=>{
-    console.log(user)
+    //console.log(user)
   })
 
 
 
   
   return (
-    <div>
+    <div className="w-full h-full ">
       {showNavbar && <Navbar></Navbar>}
-      <div className="main-content ">
+      <div className="main-content w-full h-full scroll-auto ">
         <header className="App-header">
           <BrowserRouter>
             <Routes>
@@ -64,6 +65,9 @@ function App() {
                 <Route
                 path="/deseos"
                 element={<ListaDeseos setShowNavbar={setShowNavbar} setShowFooter={setShowFooter} />} ></Route>
+                <Route
+                path="/allproducts"
+                element={<TodosProductos setShowNavbar={setShowNavbar} setShowFooter={setShowFooter} />} ></Route>
             </Routes>
           </BrowserRouter>
         </header>

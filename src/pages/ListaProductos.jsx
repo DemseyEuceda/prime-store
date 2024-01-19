@@ -14,20 +14,20 @@ const ListaProductos = () => {
 
   useEffect(()=>{
     const ref = collection(db, `categorias/${category}/productos`);
-    var list = []
+    var list = [];
     getDocs(ref).then((res)=>{
-      res.docs.map((doc)=>{
+      res.docs.forEach((doc)=>{
         list.push(doc.data());        
       })
       setProductos(list);
     })
   
-  }, [])
+  }, [category])
 
-  console.log(productos)
+  //console.log(productos)
   return (
-    <div className="border border-red">
-      <h1>{category.toUpperCase()}</h1>
+    <div className="border border-purple-2 pr-3 ">
+      
       <Products cat={productos} />
     </div>
   );

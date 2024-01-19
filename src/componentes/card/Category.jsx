@@ -4,16 +4,16 @@ const CardCategory = ({ category }) => {
   return (
     <div
       key={category.id}
-      className="group relative p-6 border border-red-300 bg-gray-1 rounded-lg "
+      className="group relative  p-6 border border-red-300 bg-gray-1 rounded-lg "
     >
       <div className="mb-1">
         <p className="text-black font-bold">{category.nombre}</p>
       </div>
-      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+      <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
         <img
           src={category.imageSrc}
           alt={category.imageAlt}
-          className="h-full w-full border border-red-400 object-cover object-center lg:h-full lg:w-full"
+          className=" border border-red-400 object-cover object-center "
         />
       </div>
       <div className="mt-4 flex justify-between">
