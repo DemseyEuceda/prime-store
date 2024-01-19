@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { storage } from "../../firebase-config";
 import { getDownloadURL, ref } from "firebase/storage";
-import { AiOutlineHeart, AiFillHeart, AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart, AiOutlineShoppingCart, AiFillEdit, AiFillDelete  } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { addProduct, addFavorite } from "../../redux/carroRedux";
 
@@ -9,6 +9,7 @@ const CardProduct = ({ product }) => {
   const [imagen, setImagen] = useState();
   const [isLiked, setIsLiked] = useState(false); 
   const dispatch = useDispatch();
+  const [rol] = useState(localStorage.getItem("rol"));
  
 
   useEffect(() => {
@@ -32,6 +33,13 @@ const CardProduct = ({ product }) => {
     }
 
   };
+
+  const editar = () =>{
+    //window.location.href = "/editarproducto"
+  }
+  const eliminar = () =>{
+
+  }
 
   return (
     <div className=" group mb-4 ml-4 mr-4 mx-auto bg-white rounded-md shadow-md overflow-hidden md:max-w-4xl md:h-max border border-purple-2">
@@ -70,9 +78,19 @@ const CardProduct = ({ product }) => {
                 <AiOutlineHeart size={30} />
               )}
             </button>
-            <button className="ml-1 p-1 bg-aqua-1 text-white rounded-lg">
-              <AiOutlineSearch size={30} />
-            </button>
+            
+            {rol==="administrador"?(
+              <div>
+                <button className="ml-1 p-1 bg-aqua-1 text-white rounded-lg" onClick={eliminar()} >
+                  <AiFillDelete size={30} />
+                </button>
+                <button className="ml-1 p-1 bg-aqua-1 text-white rounded-lg" onClick={editar()}>
+                  <AiFillEdit size={30} />
+                </button>
+
+              </div>
+            ):("")}
+            
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import { db, subirImagen } from "../../firebase-config";
 
 
 
- function EditarProducto({producto}) {
+ const EditarProducto = ({producto}) => {
   var [nombre, setNombre] = useState(producto.nombre);
   var [descripcion, setDescripcion] = useState(producto.descripcion);
   var [precio, setPrecio] = useState(producto.precio);
@@ -20,7 +20,7 @@ import { db, subirImagen } from "../../firebase-config";
     const ref = collection(db, "categorias");
     var list = []
     getDocs(ref).then((res)=>{
-      res.docs.map((doc)=>{
+      res.docs.forEach((doc)=>{
         list.push(doc.data());        
       })
       setCategorias(list);

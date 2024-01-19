@@ -98,9 +98,6 @@ function Navbar() {
                   <a href="/editarproducto">Editar Productos</a>
                 </div>
                 <div className='text-center text-white text-xl hover:bg-orange-400 cursor-pointer py-3 mb-2'>
-                  <a href="/eliminarproducto">Eliminar productos</a>
-                </div>
-                <div className='text-center text-white text-xl hover:bg-orange-400 cursor-pointer py-3 mb-2'>
                   <a href="/allproducts">Todos los productos</a>
                 </div>
                 <div className='text-center text-white text-xl hover:bg-orange-400 cursor-pointer py-3 mb-2'>
