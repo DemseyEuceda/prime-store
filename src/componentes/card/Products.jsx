@@ -2,7 +2,7 @@ import CardProduct from "./Product";
 
 const Products = ({ cat }) => {
   //console.log(cat)
-  //console.log(cat.product);
+  console.log(cat.product);
   
   return (
     <div>
